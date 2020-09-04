@@ -30,8 +30,8 @@ What can TrueMail plugin do?
 == Installation ==
 
 To get started:
-1) [https://truemail.io/app/signup](Sign up) for TrueMail for free
-2) Get your API key by clicking [https://truemail.io/app/api-keys]("Create new app")
+1) [Sign up](https://truemail.io/app/signup) for TrueMail for free
+2) Get your API key by clicking ["Create new app"](https://truemail.io/app/api-keys)
 3) Click the new created app and copy your API key from there.
 
 
