@@ -1,14 +1,16 @@
 <?php
 
-function register_settings() {
+function truemail_register_settings() {
    add_option( 'TrueMail Api Key', 'XXXXXX');
    register_setting( 'options_group', 'option_name', 'callback' );
 }
-add_action( 'admin_init', 'register_settings' );
+
+add_action( 'admin_init', 'truemail_register_settings' );
 add_action('admin_init', 'truemail_plugin_admin_init');
 add_action('admin_init', 'truemail_admin_notice');
+
 function truemail_register_options_page() {
-  add_options_page('Truemail Email Validator', 'Truemail Email Validator', 'manage_options', 'truemail-email-validator', 'truemail_options_page');
+  add_options_page('TrueMail Email Validator', 'TrueMail Email Validator', 'manage_options', 'truemail-email-validator', 'truemail_options_page');
 }
 
 function truemail_options_page() {
@@ -23,23 +25,14 @@ function truemail_options_page() {
         </form>
 
         <br/>
-        <h4 style="font-size: 15px;margin: 0;"><b>Note:</b> </h4>
-        <ul style="list-style-type: disc;padding-left: 10px;font-size: 14px;">
-            <li>Option <b>Accept only Business Address</b> will supersede other options in priority </li>
-            <li>If one or more options chosen then validation check will be perform based on the priority and result will be Valid atleast an option satisfy</li>
-            <li>Priority of option <b>Accept only Business Address</b> is higher than Role or Disposable options. Role and Disposable share the same priority</li>
-            </ul>
+
     </div>
 
-        <form method="post" action="test.php">
-            <input type="text" name="email">
-            <input type="submit" value="click" name="submit">
-        </form>
 <?php
 }
 
 function truemail_plugin_section_text() {
-    echo '<p style="font-size: 14px;">At here you can edit your Truemail API Token and timeout value, also you can adjust how the validation need to be performed. The default plugin options will result given email address as "<b>valid</b>" for Truemail statuses other than "<b>invalid</b>" nor "<b>disposable</b>" nor "<b>role</b>", further it can be fine tuned by choosing one or more options on what to consider as "<b>valid</b>" email address. Clicking "<b>Apply</b>" will save the settings and changes come into effect</p>';
+    echo '<p style="font-size: 14px;">At here you can edit your TrueMail API Token and timeout value, also you can adjust how the validation need to be performed. The default plugin options will result given email address as "<b>valid</b>" for TrueMail statuses other than "<b>invalid</b>" nor "<b>disposable</b>" nor "<b>role</b>", further it can be fine tuned by choosing one or more options on what to consider as "<b>valid</b>" email address. Clicking "<b>Apply</b>" will save the settings and changes come into effect</p>';
 }
 
 function truemail_plugin_admin_init() {
@@ -94,7 +87,7 @@ function truemail_verify($valid, $email)
 		    'timeout' => $options['timeout']
         ];
 
-        if($timeout) {
+        if(isset($timeout)) {
             if(!is_int($timeout))
 		        $params['timeout'] = 15;
             $params['timeout'] = $timeout;
@@ -102,9 +95,16 @@ function truemail_verify($valid, $email)
 
         $WP_Http = new WP_Http();
                 $data = $WP_Http->request( $url, $params );
-                $data = json_decode($data['body'], true);
 
-        if ($data['error']) {
+                if (is_wp_error($data)) {
+	                	return true;
+	                }
+	                else {
+						$data = json_decode($data['body'], true);
+
+	                }
+
+        if (isset($data['error'])) {
             return true;
         } else {
             if ($data['status_id'] == 3 || $data['status_id'] == 4 || ($data['status_id'] == 5 && $options['disposable_on_off']) || $data['status_id'] == 7 ) {
@@ -128,7 +128,7 @@ function truemail_admin_notice() {
     $options = get_option('truemail_email_validator');
     if ($options['api_key'] == '' || $options['api_key'] == ' ') {
         echo '<div class="notice notice-warning is-dismissible">
-			 <p>Please get your Truemail API Token from <a href="https://truemail.io/app/api-keys" target="_blank">here</a> and save in <a href="options-general.php?page=truemail-email-validator">setting page</a>.</p>
+			 <p>Please get your TrueMail API Token from <a href="https://truemail.io/app/api-keys" target="_blank">here</a> and save in <a href="options-general.php?page=truemail-email-validator">setting page</a>.</p>
 		 </div>';
     }
 }
