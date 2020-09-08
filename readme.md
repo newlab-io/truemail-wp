@@ -121,3 +121,12 @@ Check our policy - [https://truemail.io/privacy](https://truemail.io/privacy)
 
 = 1.0 =
 - Initial release
+
+= 1.1 =
+- Minor Bug Fixes
+
+= 1.2 =
+- Minor Bug Fixes
+
+= 1.3 =
+- Minor Bug Fixes
