@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="60" height="60" rx="8"></rect>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Style-guide" transform="translate(-1205.000000, -86.000000)">
+            <g id="Logo-2" transform="translate(1205.000000, 86.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#1DD37F" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <path d="M44,42 L38.9087234,42 L38.9087234,29.8895062 L44,26.5139505 L44,42 Z M16,42 L16,26.5139505 L21.0912766,29.8895062 L21.0912766,42 L16,42 Z M38.9087234,27.05 L30,33.0705132 L21.2649649,27.05 L16,23.5825422 L16,20 C16,19.4477153 16.4477153,19 17,19 L17.7935325,19 C17.9932597,19 18.1884112,19.0598076 18.3538419,19.1717166 L30,27.05 L41.6461581,19.1717166 C41.8115888,19.0598076 42.0067403,19 42.2064675,19 L43,19 C43.5522847,19 44,19.4477153 44,20 L44,23.5526704 L38.9087234,27.05 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
