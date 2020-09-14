@@ -3,7 +3,7 @@
 Stable tag:        5.4.1
 Tested up to:      5.4.1
 Requires at least: 4.6
-Contributors:      TrueMail.io
+Contributors:      TrueMail
 Donate link:       https://truemail.io/
 Tags:              email verification, email verify, email validation, real-time form validation, email verifier, email tester, email checker
 License:           GPLv2 or later
@@ -130,3 +130,6 @@ Check our policy - [https://truemail.io/privacy](https://truemail.io/privacy)
 
 = 1.3 =
 - Minor Bug Fixes
+
+= 1.4 =
+- Minor Fixes
